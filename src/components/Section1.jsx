@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createUser } from "../services/apiCalls";
 
 const estados = ["Vivo", "Muerto", "Desconocido"];
 
@@ -19,6 +20,21 @@ const Section1 = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("New person submitted:", formData);
+    createUser(formData)
+      .then((response) => {
+        console.log("User created successfully:", response);
+        // Optionally reset the form or show a success message
+        setFormData({
+          nombre: "",
+          edad: "",
+          afiliacion: "",
+          descripcion: "",
+          estado: "Vivo",
+        });
+      })
+      .catch((error) => {
+        console.error("Error creating user:", error);
+      });
     // TODO: Handle the actual data processing or API call here
   };
 
