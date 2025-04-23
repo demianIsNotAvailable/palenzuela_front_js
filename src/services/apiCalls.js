@@ -3,7 +3,7 @@ const API = "https://wrg-nrx.vercel.app/"
 
 export const createUser = async (userData) => {
     try {
-        const response = await fetch(`${API}api/users`, {
+        const response = await fetch(`${API}api/persons`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -22,7 +22,7 @@ export const createUser = async (userData) => {
 
 export const getAllUsers = async () => {
     try {
-        const response = await fetch(`${API}api/users`, {
+        const response = await fetch(`${API}api/persons`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -32,6 +32,7 @@ export const getAllUsers = async () => {
         throw new Error("Network response was not ok");
         }
         const data = await response.json();
+        console.log("Fetched users:", data);
         return data;
     } catch (error) {
         console.error("Error fetching users:", error);
