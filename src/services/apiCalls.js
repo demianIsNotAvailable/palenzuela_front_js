@@ -38,3 +38,40 @@ export const getAllUsers = async () => {
         console.error("Error fetching users:", error);
     }
 }
+
+export const updateUser = async (userId, userData) => {
+    try {
+        const response = await fetch(`${API}api/persons/${userId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+        });
+        if (!response.status === 200) {
+        throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error updating user:", error);
+    }
+}
+
+export const deleteUser = async (userId) => {
+    try {
+        const response = await fetch(`${API}api/persons/${userId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        });
+        if (!response.status === 200) {
+        throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error deleting user:", error);
+    }
+}
