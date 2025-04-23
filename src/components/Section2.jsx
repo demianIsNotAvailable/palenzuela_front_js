@@ -32,8 +32,10 @@ const Section2 = () => {
   const handleSave = (id) => {
     const updatedPerson = users.find((p) => p._id === id);
     console.log("Saving:", updatedPerson);
-    updateUser(updatedPerson._id, updatedPerson).then((response) => {
+    updateUser(updatedPerson._id, updatedPerson)
+    .then((response) => {
       console.log("User updated successfully:", response);
+      setExpandedId(null)
       // Optionally reset the form or show a success message
     });
     // TODO: Call your update service
@@ -55,7 +57,7 @@ const Section2 = () => {
         });
     }
   };
-  
+
   return (
     <div className='space-y-4 max-w-md mx-auto'>
       {users?.map((person) => (
