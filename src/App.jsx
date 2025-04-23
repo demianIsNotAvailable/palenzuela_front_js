@@ -6,7 +6,7 @@ import Section3 from "./components/Section3";
 import Section4 from "./components/Section4";
 
 const App = () => {
-  const [activeSection, setActiveSection] = useState("section1");
+  const [activeSection, setActiveSection] = useState(null);
 
   const renderSection = () => {
     switch (activeSection) {

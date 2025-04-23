@@ -1,7 +1,7 @@
 import React from "react";
 
 const Section3 = () => {
-  return <div>Welcome to Sectio333333333333333333333333go.</div>;
+  return <div>Añadir incidente</div>;
 };
 
 export default Section3;
