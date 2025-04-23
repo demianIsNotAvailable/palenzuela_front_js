@@ -4,7 +4,7 @@ const tabs = [
   { id: "section1", emoji: "➕👤" },  // New Person
   { id: "section2", emoji: "📋👥" },  // People List
   { id: "section3", emoji: "➕🗓️" }, // New Event
-  { id: "section4", emoji: "📅📃" }, // Event List
+  { id: "section4", emoji: "📋🗓️" }, // Event List
 ];
 
 const Header = ({ activeSection, onTabClick }) => {
