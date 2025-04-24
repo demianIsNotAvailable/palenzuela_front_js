@@ -9,7 +9,6 @@ const Section2 = () => {
 
   const fetchUsers = async () => {
     const data = await getAllUsers();
-    console.log("Fetched users:", data);
     setUsers(data);
   };
 
@@ -31,25 +30,19 @@ const Section2 = () => {
 
   const handleSave = (id) => {
     const updatedPerson = users.find((p) => p._id === id);
-    console.log("Saving:", updatedPerson);
     updateUser(updatedPerson._id, updatedPerson)
     .then((response) => {
-      console.log("User updated successfully:", response);
       setExpandedId(null)
-      // Optionally reset the form or show a success message
     });
-    // TODO: Call your update service
   };
 
-  // function that shows a confirmation dialog before deleting a user
   const handleDelete = (id) => {
     const confirmDelete = window.confirm(
-      "¿Estás seguro de que quieres borrar este usuario?"
+      "¿Estás seguro de que quieres borrar este sujeto?"
     );
     if (confirmDelete) {
       deleteUser(id)
         .then((response) => {
-          console.log("User deleted successfully:", response);
           setUsers((prev) => prev.filter((person) => person._id !== id));
         })
         .catch((error) => {
@@ -74,6 +67,15 @@ const Section2 = () => {
 
           {expandedId === person._id && (
             <div className='mt-4 space-y-3'>
+              <input
+                type='text'
+                value={person.nombre}
+                onChange={(e) =>
+                  handleChange(person._id, "nombre", e.target.value)
+                }
+                className='w-full border rounded px-3 py-2'
+                placeholder='Nombre'
+              />
               <input
                 type='text'
                 value={person.edad}

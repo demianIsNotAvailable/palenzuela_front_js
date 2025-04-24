@@ -24,7 +24,7 @@ const App = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-8 border border-gray-300 rounded-lg shadow-md">
+    <div className="max-w-3xl mx-auto mt-8  rounded-lg shadow-md">
       <Header activeSection={activeSection} onTabClick={setActiveSection} />
       <div className="p-4 min-h-[300px] bg-white">{renderSection()}</div>
     </div>
